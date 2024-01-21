@@ -1,4 +1,18 @@
+import dotenv from "dotenv";
 import express from "express";
+import mongoose from "mongoose";
+
+dotenv.config();
+
+
+const mongoConnectionString = process.env.MONGO_URI;
+mongoose.connect(mongoConnectionString)
+.then(()=>{
+    console.log("MongoDB is connected.......");
+})
+.catch((error)=>{
+    console.log(error);
+});
 
 const app = express();
 
